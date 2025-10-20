@@ -41,7 +41,7 @@
     .done .dot{background:#22c55e}
     .actions{display:flex;gap:8px;margin-top:auto}
     .pill{border:0;padding:9px 12px;border-radius:12px;font-weight:700;cursor:pointer}
-    .learn{background:var(--pill1);color:#fff}
+    .learn{background:var(--pill1);color:#fff;text-decoration:none;display:inline-block}
     .learn:hover{background:var(--pill1h)}
     .quiz{background:var(--pill2);color:#fff}
     .quiz:hover{background:var(--pill2h)}
@@ -62,11 +62,11 @@
     #badgeBack .modal{text-align:center}
     #badgeText{font-size:20px;font-weight:700;margin:12px 0}
     /* footer + back button */
+    .fallback{background:#fff3cd;color:#7a5b00;border:1px solid #ffe69c;padding:10px 12px;border-radius:10px;margin:10px 0;font-size:13px;display:none}
     footer{margin:22px 0 12px;color:#475569;font-size:12px;text-align:center}
     .back-btn-wrap{margin:24px auto 32px;display:flex;justify-content:center}
     .back-btn{display:inline-block;background:#111827;color:#fff;text-decoration:none;font-weight:800;padding:12px 18px;border-radius:12px}
     .back-btn:hover{background:#0f172a}
-    /* protect Chinese lines from translation engines visually */
     .notranslate{unicode-bidi:plaintext;}
   </style>
 </head>
@@ -77,6 +77,9 @@
       <h1>Cricket Rules: Level Map / <span class="notranslate" lang="zh-CN" translate="no">板球规则闯关</span></h1>
     </header>
     <p class="sub">Learn a rule → take a 1-question quiz → fill the bar to 100%! <span class="notranslate" lang="zh-CN" translate="no">学完小知识 → 回答1题 → 进度满格！</span></p>
+
+    <!-- JS fallback notice -->
+    <div class="fallback" id="fallbackNote">If this page isn’t interactive, make sure you’re viewing it on GitHub Pages (not the code viewer), and that your browser allows JavaScript.</div>
 
     <!-- Progress -->
     <div class="prog-wrap" aria-label="Progress">
@@ -91,11 +94,8 @@
 
     <!-- Grid -->
     <section class="grid" id="grid">
-      <!-- Level 1 -->
+      <!-- L1 -->
       <article class="card" data-level="1"
-        data-url="https://aach2028-nuvrg.wordpress.com/rules-of-cricket/section-1/"
-        data-title-en="Basic Objectives of the Game"
-        data-title-zh="比赛的基本目标"
         data-q-en="What is the main way a team wins a cricket match?"
         data-q-zh="一支球队赢得比赛的主要方式是什么？"
         data-a="Score more runs than the other team"
@@ -108,16 +108,13 @@
         <p class="desc">Learn what both teams are trying to do. <span class="notranslate" lang="zh-CN" translate="no">了解双方的胜利目标。</span></p>
         <div class="status"><span class="dot"></span><span class="status-text">Not done / <span class="notranslate" lang="zh-CN" translate="no">未完成</span></span></div>
         <div class="actions">
-          <button class="pill learn">Learn / <span class="notranslate" lang="zh-CN" translate="no">学习</span></button>
+          <a class="pill learn" href="https://aach2028-nuvrg.wordpress.com/rules-of-cricket/section-1/" target="_blank" rel="noopener">Learn / <span class="notranslate" lang="zh-CN" translate="no">学习</span></a>
           <button class="pill quiz">Quiz / <span class="notranslate" lang="zh-CN" translate="no">测试</span></button>
         </div>
       </article>
 
-      <!-- Level 2 -->
+      <!-- L2 -->
       <article class="card" data-level="2"
-        data-url="https://aach2028-nuvrg.wordpress.com/rules-of-cricket/section-2-cricket-field-and-key-positions/"
-        data-title-en="Cricket Field & Key Positions"
-        data-title-zh="板球场地与关键位置"
         data-q-en="What is the ‘wicket’?"
         data-q-zh="什么是“三柱门”（wicket）？"
         data-a="Three stumps and two bails at each end"
@@ -130,16 +127,13 @@
         <p class="desc">See the pitch, boundary, and where players stand. <span class="notranslate" lang="zh-CN" translate="no">了解球道、边线与站位。</span></p>
         <div class="status"><span class="dot"></span><span class="status-text">Not done / <span class="notranslate" lang="zh-CN" translate="no">未完成</span></span></div>
         <div class="actions">
-          <button class="pill learn">Learn / <span class="notranslate" lang="zh-CN" translate="no">学习</span></button>
+          <a class="pill learn" href="https://aach2028-nuvrg.wordpress.com/rules-of-cricket/section-2-cricket-field-and-key-positions/" target="_blank" rel="noopener">Learn / <span class="notranslate" lang="zh-CN" translate="no">学习</span></a>
           <button class="pill quiz">Quiz / <span class="notranslate" lang="zh-CN" translate="no">测试</span></button>
         </div>
       </article>
 
-      <!-- Level 3 -->
+      <!-- L3 -->
       <article class="card" data-level="3"
-        data-url="https://aach2028-nuvrg.wordpress.com/rules-of-cricket/section-3-types-of-players-and-their-roles-%e7%90%83%e5%91%98%e7%b1%bb%e5%9e%8b%e4%b8%8e%e8%a7%92%e8%89%b2/"
-        data-title-en="Types of Players & Roles"
-        data-title-zh="球员类型与职责"
         data-q-en="Which role mainly bowls the ball?"
         data-q-zh="主要负责投球的角色是？"
         data-a="Batter"
@@ -152,16 +146,13 @@
         <p class="desc">Batter, bowler, keeper, all-rounder—who does what? <span class="notranslate" lang="zh-CN" translate="no">谁负责什么？</span></p>
         <div class="status"><span class="dot"></span><span class="status-text">Not done / <span class="notranslate" lang="zh-CN" translate="no">未完成</span></span></div>
         <div class="actions">
-          <button class="pill learn">Learn / <span class="notranslate" lang="zh-CN" translate="no">学习</span></button>
+          <a class="pill learn" href="https://aach2028-nuvrg.wordpress.com/rules-of-cricket/section-3-types-of-players-and-their-roles-%e7%90%83%e5%91%98%e7%b1%bb%e5%9e%8b%e4%b8%8e%e8%a7%92%e8%89%b2/" target="_blank" rel="noopener">Learn / <span class="notranslate" lang="zh-CN" translate="no">学习</span></a>
           <button class="pill quiz">Quiz / <span class="notranslate" lang="zh-CN" translate="no">测试</span></button>
         </div>
       </article>
 
-      <!-- Level 4 -->
+      <!-- L4 -->
       <article class="card" data-level="4"
-        data-url="https://aach2028-nuvrg.wordpress.com/rules-of-cricket/section-4-how-to-score-runs-%e6%80%8e%e4%b9%88%e5%be%97%e5%88%86/"
-        data-title-en="How to Score Runs"
-        data-title-zh="如何得分"
         data-q-en="If the ball reaches the boundary along the ground, how many runs?"
         data-q-zh="皮球沿地面出界，得分是多少？"
         data-a="3"
@@ -174,16 +165,13 @@
         <p class="desc">Singles, boundaries, extras—easy math! <span class="notranslate" lang="zh-CN" translate="no">单分、界外分、附加分。</span></p>
         <div class="status"><span class="dot"></span><span class="status-text">Not done / <span class="notranslate" lang="zh-CN" translate="no">未完成</span></span></div>
         <div class="actions">
-          <button class="pill learn">Learn / <span class="notranslate" lang="zh-CN" translate="no">学习</span></button>
+          <a class="pill learn" href="https://aach2028-nuvrg.wordpress.com/rules-of-cricket/section-4-how-to-score-runs-%e6%80%8e%e4%b9%88%e5%be%97%e5%88%86/" target="_blank" rel="noopener">Learn / <span class="notranslate" lang="zh-CN" translate="no">学习</span></a>
           <button class="pill quiz">Quiz / <span class="notranslate" lang="zh-CN" translate="no">测试</span></button>
         </div>
       </article>
 
-      <!-- Level 5 -->
+      <!-- L5 -->
       <article class="card" data-level="5"
-        data-url="https://aach2028-nuvrg.wordpress.com/rules-of-cricket/section-5-ways-a-batsman-can-get-out-modes-of-dismissal-%e5%87%bb%e7%90%83%e6%89%8b%e7%9a%84%e5%87%ba%e5%b1%80%e6%96%b9%e5%bc%8f/"
-        data-title-en="Ways a Batter Gets Out"
-        data-title-zh="击球手如何出局"
         data-q-en="Which is NOT a mode of dismissal?"
         data-q-zh="以下哪项不是出局方式？"
         data-a="Bowled"
@@ -196,16 +184,13 @@
         <p class="desc">Bowled, caught, run-out, LBW… <span class="notranslate" lang="zh-CN" translate="no">常见出局方式。</span></p>
         <div class="status"><span class="dot"></span><span class="status-text">Not done / <span class="notranslate" lang="zh-CN" translate="no">未完成</span></span></div>
         <div class="actions">
-          <button class="pill learn">Learn / <span class="notranslate" lang="zh-CN" translate="no">学习</span></button>
+          <a class="pill learn" href="https://aach2028-nuvrg.wordpress.com/rules-of-cricket/section-5-ways-a-batsman-can-get-out-modes-of-dismissal-%e5%87%bb%e7%90%83%e6%89%8b%e7%9a%84%e5%87%ba%e5%b1%80%e6%96%b9%e5%bc%8f/" target="_blank" rel="noopener">Learn / <span class="notranslate" lang="zh-CN" translate="no">学习</span></a>
           <button class="pill quiz">Quiz / <span class="notranslate" lang="zh-CN" translate="no">测试</span></button>
         </div>
       </article>
 
-      <!-- Level 6 -->
+      <!-- L6 -->
       <article class="card" data-level="6"
-        data-url="https://aach2028-nuvrg.wordpress.com/rules-of-cricket/section-6-over-limits-and-match-formats-%e4%b8%80%e4%b8%aa%e7%90%83%e9%99%90%e5%88%b6%e5%92%8c%e6%af%94%e8%b5%9b%e5%bd%a2%e5%bc%8f/"
-        data-title-en="Over Limits & Match Formats"
-        data-title-zh="回合限制与比赛形式"
         data-q-en="How many legal balls are in one over?"
         data-q-zh="一个回合有几次合法投球？"
         data-a="5"
@@ -218,16 +203,13 @@
         <p class="desc">T20, ODI, Test—what changes? <span class="notranslate" lang="zh-CN" translate="no">赛制差异在哪里？</span></p>
         <div class="status"><span class="dot"></span><span class="status-text">Not done / <span class="notranslate" lang="zh-CN" translate="no">未完成</span></span></div>
         <div class="actions">
-          <button class="pill learn">Learn / <span class="notranslate" lang="zh-CN" translate="no">学习</span></button>
+          <a class="pill learn" href="https://aach2028-nuvrg.wordpress.com/rules-of-cricket/section-6-over-limits-and-match-formats-%e4%b8%80%e4%b8%aa%e7%90%83%e9%99%90%e5%88%b6%e5%92%8c%e6%af%94%e8%b5%9b%e5%bd%a2%e5%bc%8f/" target="_blank" rel="noopener">Learn / <span class="notranslate" lang="zh-CN" translate="no">学习</span></a>
           <button class="pill quiz">Quiz / <span class="notranslate" lang="zh-CN" translate="no">测试</span></button>
         </div>
       </article>
 
-      <!-- Level 7 -->
+      <!-- L7 -->
       <article class="card" data-level="7"
-        data-url="https://aach2028-nuvrg.wordpress.com/rules-of-cricket/section-7-how-a-match-ends-and-who-wins/"
-        data-title-en="How a Match Ends & Who Wins"
-        data-title-zh="比赛如何结束与判定胜负"
         data-q-en="If both teams score the same runs, what is it usually called?"
         data-q-zh="双方得分相同通常称为？"
         data-a="Tie / 平局"
@@ -240,16 +222,13 @@
         <p class="desc">Results, ties, super overs—<span class="notranslate" lang="zh-CN" translate="no">结局一览。</span></p>
         <div class="status"><span class="dot"></span><span class="status-text">Not done / <span class="notranslate" lang="zh-CN" translate="no">未完成</span></span></div>
         <div class="actions">
-          <button class="pill learn">Learn / <span class="notranslate" lang="zh-CN" translate="no">学习</span></button>
+          <a class="pill learn" href="https://aach2028-nuvrg.wordpress.com/rules-of-cricket/section-7-how-a-match-ends-and-who-wins/" target="_blank" rel="noopener">Learn / <span class="notranslate" lang="zh-CN" translate="no">学习</span></a>
           <button class="pill quiz">Quiz / <span class="notranslate" lang="zh-CN" translate="no">测试</span></button>
         </div>
       </article>
 
-      <!-- Level 8 -->
+      <!-- L8 -->
       <article class="card" data-level="8"
-        data-url="https://aach2028-nuvrg.wordpress.com/rules-of-cricket/section-8-equipment-and-gear-%e8%ae%be%e5%a4%87%e5%92%8c%e8%a3%85%e5%a4%87/"
-        data-title-en="Equipment & Gear"
-        data-title-zh="装备与护具"
         data-q-en="Which protection is worn by batters?"
         data-q-zh="击球手通常佩戴哪种护具？"
         data-a="Pads and helmet"
@@ -262,7 +241,7 @@
         <p class="desc">Bat, ball, pads, helmet—<span class="notranslate" lang="zh-CN" translate="no">安全第一！</span></p>
         <div class="status"><span class="dot"></span><span class="status-text">Not done / <span class="notranslate" lang="zh-CN" translate="no">未完成</span></span></div>
         <div class="actions">
-          <button class="pill learn">Learn / <span class="notranslate" lang="zh-CN" translate="no">学习</span></button>
+          <a class="pill learn" href="https://aach2028-nuvrg.wordpress.com/rules-of-cricket/section-8-equipment-and-gear-%e8%ae%be%e5%a4%87%e5%92%8c%e8%a3%85%e5%a4%87/" target="_blank" rel="noopener">Learn / <span class="notranslate" lang="zh-CN" translate="no">学习</span></a>
           <button class="pill quiz">Quiz / <span class="notranslate" lang="zh-CN" translate="no">测试</span></button>
         </div>
       </article>
@@ -276,7 +255,7 @@
     </div>
 
     <footer>
-      Tip: you can embed this page in WordPress via an iframe once it’s on GitHub Pages.
+      Tip: embed this page in WordPress via an iframe after publishing on GitHub Pages.
     </footer>
   </div>
 
@@ -308,8 +287,7 @@
   </div>
 
 <script>
-/* ====== Level Logic (JavaScript) ====== */
-(function(){
+document.addEventListener('DOMContentLoaded', function(){
   const STORAGE_KEY = 'cricketRuleLevels_v1';
   const grid = document.getElementById('grid');
   const cards = Array.from(grid.querySelectorAll('.card'));
@@ -318,6 +296,7 @@
   const progressBar = document.getElementById('prog');
   const countEl = document.getElementById('count');
   const resetBtn = document.getElementById('resetBtn');
+  const fallbackNote = document.getElementById('fallbackNote');
 
   // Quiz modal elements
   const backdrop = document.getElementById('backdrop');
@@ -334,6 +313,9 @@
   const badgeText = document.getElementById('badgeText');
   const badgeClose = document.getElementById('badgeClose');
 
+  // If JS is running, hide fallback
+  if(fallbackNote){ fallbackNote.style.display = 'none'; }
+
   // Load/save
   function load(){ try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; } catch(e){ return []; } }
   function save(arr){ localStorage.setItem(STORAGE_KEY, JSON.stringify(arr)); }
@@ -346,7 +328,6 @@
     if(n <= 3) msg = '🥉 You are a Cricket Novice!';
     else if(n <= 7) msg = '🥈 You are a Cricket Amateur!';
     else msg = '🏆 You are a Cricket Master!';
-    // Show only when hitting 3, 7, or 8 to avoid popping constantly
     if([3,7,total].includes(n)){
       badgeText.textContent = msg;
       badgeBack.style.display = 'flex';
@@ -375,7 +356,9 @@
     const correct = (card.dataset.correct || 'A').trim().toUpperCase();
     qEN.textContent = card.dataset.qEn || card.getAttribute('data-q-en') || '';
     qZH.textContent = card.dataset.qZh || card.getAttribute('data-q-zh') || '';
-    learnLink.href = card.dataset.url || '#';
+    // Learn link in modal points to the same page as the "Learn" anchor near the card title
+    const learnAnchor = card.querySelector('.learn');
+    learnLink.href = learnAnchor ? learnAnchor.getAttribute('href') : '#';
 
     const options = [
       {key:'A', text: card.dataset.a || ''},
@@ -392,15 +375,13 @@
       b.className = 'opt';
       b.innerHTML = `<strong>${opt.key})</strong> ${opt.text}`;
       b.addEventListener('click', ()=>{
-        // clear states
         optsWrap.querySelectorAll('.opt').forEach(x=>x.classList.remove('correct','wrong'));
         if(opt.key === correct){
           b.classList.add('correct');
           hint.style.display = 'none';
           okBtn.style.display = 'inline-block';
           okBtn.onclick = ()=>{
-            const level = card.dataset.level;
-            completed.add(level);
+            completed.add(card.dataset.level);
             save(Array.from(completed));
             updateUI();
             showBadgeIfMilestone();
@@ -418,34 +399,32 @@
     backdrop.style.display = 'flex';
     backdrop.setAttribute('aria-hidden','false');
   }
+
   function closeModal(){
     backdrop.style.display = 'none';
     backdrop.setAttribute('aria-hidden','true');
   }
 
-  // bind buttons
+  // Bind quiz buttons (after DOM ready)
   cards.forEach(card=>{
-    const learnBtn = card.querySelector('.learn');
     const quizBtn  = card.querySelector('.quiz');
-    learnBtn.addEventListener('click', ()=>{
-      const url = card.dataset.url;
-      if(url) window.open(url, '_blank', 'noopener');
-    });
-    quizBtn.addEventListener('click', ()=> openModal(card));
+    if(quizBtn){
+      quizBtn.addEventListener('click', ()=> openModal(card));
+    }
   });
 
-  // modal controls
+  // Modal controls
   closeBtn.addEventListener('click', closeModal);
   backdrop.addEventListener('click', (e)=>{ if(e.target === backdrop) closeModal(); });
 
-  // badge modal controls
+  // Badge modal controls
   badgeClose.addEventListener('click', ()=>{
     badgeBack.style.display='none';
     badgeBack.setAttribute('aria-hidden','true');
   });
   badgeBack.addEventListener('click', (e)=>{ if(e.target === badgeBack){ badgeBack.style.display='none'; badgeBack.setAttribute('aria-hidden','true'); } });
 
-  // reset
+  // Reset
   resetBtn.addEventListener('click', ()=>{
     if(confirm('Reset your progress? 需要重置进度吗？')){
       localStorage.removeItem(STORAGE_KEY);
@@ -455,9 +434,9 @@
     }
   });
 
-  // init
+  // Init
   updateUI();
-})();
+});
 </script>
 </body>
 </html>
