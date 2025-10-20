@@ -419,7 +419,53 @@
   });
 
   // init
+    // === Badge Elements ===
+  const badgeBack = document.getElementById('badgeBack');
+  const badgeText = document.getElementById('badgeText');
+  const badgeClose = document.getElementById('badgeClose');
+
+  badgeClose.addEventListener('click', ()=>{
+    badgeBack.style.display='none';
+    badgeBack.setAttribute('aria-hidden','true');
+  });
+
+  // === Show badge based on score ===
+  function showBadge(){
+    const score = completed.size;
+    if(score === 0) return; // nothing yet
+    let msg='';
+    if(score <= 3) msg = '🥉 You are a Cricket Novice!';
+    else if(score <= 7) msg = '🥈 You are a Cricket Amateur!';
+    else msg = '🏆 You are a Cricket Master!';
+    badgeText.textContent = msg;
+    badgeBack.style.display='flex';
+    badgeBack.setAttribute('aria-hidden','false');
+  }
+
+  // === Override updateUI to also trigger badge check ===
+  function updateUI(){
+    cards.forEach(card=>{
+      const level = card.dataset.level;
+      const statusText = card.querySelector('.status-text');
+      if(completed.has(level)){
+        card.classList.add('done');
+        statusText.textContent = 'Done / 已完成';
+      }else{
+        card.classList.remove('done');
+        statusText.textContent = 'Not done / 未完成';
+      }
+    });
+    const pct = Math.round((completed.size/total)*100);
+    progressBar.style.width = pct + '%';
+    countEl.textContent = `${completed.size} / ${total} 完成`;
+
+    // show badge if all done or when reaching milestones
+    if(completed.size === total) showBadge();
+  }
+
   updateUI();
+})();
+
 })();
 </script>
 </body>
